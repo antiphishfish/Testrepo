@@ -35,9 +35,14 @@ jobs:
         cd /usr/share/debootstrap/scripts/
         (echo "default_mirror http://http.kali.org/kali"; sed -e "s/debian-archive-keyring.gpg/kali-archive-keyring.gpg/g" sid) > /tmp/kali
         sudo mv /tmp/kali .
-        
+        sudo ln -s kali kali-rolling
+
+        cd ~/
         sudo git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
-        
+        cd live-build-config/
+        cat build.sh
+
+
     - name: Get GParted Live zip
       run: |
         set -xe
