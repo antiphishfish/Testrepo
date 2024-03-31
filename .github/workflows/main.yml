@@ -22,9 +22,20 @@ jobs:
         set -xe
         
         cd /tmp/
+        
         #sudo apt -y -qq -o=Dpkg::Use-Pty=0 update ; sudo apt -y -qq -o=Dpkg::Use-Pty=0 upgrade ; sudo apt -y -qq -o=Dpkg::Use-Pty=0 install squashfs-tools isolinux xorriso unzip zip
         
         sudo apt -y -qq -o=Dpkg::Use-Pty=0 install -y git live-build simple-cdd cdebootstrap curl
+        wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2022.1_all.deb
+        wget https://http.kali.org/pool/main/l/live-build/live-build_20230502+kali3_all.deb
+
+        sudo dpkg -i kali-archive-keyring_2022.1_all.deb
+        sudo dpkg -i live-build_20230502+kali3_all.deb
+        
+        cd /usr/share/debootstrap/scripts/
+        (echo "default_mirror http://http.kali.org/kali"; sed -e "s/debian-archive-keyring.gpg/kali-archive-keyring.gpg/g" sid) > /tmp/kali
+        sudo mv /tmp/kali .
+        
         sudo git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
         
     - name: Get GParted Live zip
