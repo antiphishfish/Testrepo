@@ -1,0 +1,34 @@
+name: Kali customization build script
+
+on: workflow_dispatch
+  
+  #schedule:
+    # * is a special character in YAML so you have to quote this string
+    #- cron:  '10 00 * * *'
+
+#permissions:
+#  contents: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install prerequisites
+      run: |
+        set -xe
+        
+        cd /tmp/
+        #sudo apt -y -qq -o=Dpkg::Use-Pty=0 update ; sudo apt -y -qq -o=Dpkg::Use-Pty=0 upgrade ; sudo apt -y -qq -o=Dpkg::Use-Pty=0 install squashfs-tools isolinux xorriso unzip zip
+        
+        sudo apt -y -qq -o=Dpkg::Use-Pty=0 install -y git live-build simple-cdd cdebootstrap curl
+        sudo git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
+        
+    - name: Get GParted Live zip
+      run: |
+        set -xe
+
+        whoami
