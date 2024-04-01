@@ -49,4 +49,6 @@ jobs:
         sudo ls -alh /dev/
         sudo mkdir -p /mnt/vdi
         sudo mount
+        sudo cat /proc/partitions
+        sudo blkid
         sudo mount /dev/mapper /mnt/vdi/
