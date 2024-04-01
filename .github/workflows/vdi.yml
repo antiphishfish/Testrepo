@@ -25,10 +25,15 @@ jobs:
         
         #sudo apt -y -qq -o=Dpkg::Use-Pty=0 update ; sudo apt -y -qq -o=Dpkg::Use-Pty=0 upgrade ; sudo apt -y -qq -o=Dpkg::Use-Pty=0 install squashfs-tools isolinux xorriso unzip zip
         
-        sudo apt -y -qq -o=Dpkg::Use-Pty=0 install -y git live-build simple-cdd cdebootstrap curl debootstrap axel p7zip-full
+        sudo apt -y -qq -o=Dpkg::Use-Pty=0 install -y git live-build simple-cdd cdebootstrap curl debootstrap axel p7zip-full qemu-kvm
 
         axel -q "https://cdimage.kali.org/kali-2024.1/kali-linux-2024.1-virtualbox-amd64.7z" -o "kali_vbox.7z"
 
         sha256sum "kali_vbox.7z"
 
         7z x "kali_vbox.7z"
+
+        sudo rmmod nbd
+        sudo modprobe nbd max_part=16
+        sudo qemu-nbd -c /dev/nbd0 *.vdi
+        sudo mount /dev/nbd0p1 /mnt
