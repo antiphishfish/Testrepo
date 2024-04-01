@@ -1,0 +1,32 @@
+name: Kali VDI customization build script
+
+on: workflow_dispatch
+  
+  #schedule:
+    # * is a special character in YAML so you have to quote this string
+    #- cron:  '10 00 * * *'
+
+#permissions:
+#  contents: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install prerequisites
+      run: |
+        set -xe
+        
+        cd /tmp/
+        
+        #sudo apt -y -qq -o=Dpkg::Use-Pty=0 update ; sudo apt -y -qq -o=Dpkg::Use-Pty=0 upgrade ; sudo apt -y -qq -o=Dpkg::Use-Pty=0 install squashfs-tools isolinux xorriso unzip zip
+        
+        sudo apt -y -qq -o=Dpkg::Use-Pty=0 install -y git live-build simple-cdd cdebootstrap curl debootstrap axel
+
+        axel "https://cdimage.kali.org/kali-2024.1/kali-linux-2024.1-virtualbox-amd64.7z"
+
+        sha256sum kali-linux-2024.1-virtualbox-amd64.7z
