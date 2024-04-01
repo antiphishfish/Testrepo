@@ -47,5 +47,6 @@ jobs:
 
         sudo kpartx -a /dev/nbd0
         sudo ls -alh /dev/
-        mkdir -p /mnt/vdi
-        sudo mount /dev/nbd0p1 /mnt/vdi/
+        sudo mkdir -p /mnt/vdi
+        sudo mount
+        sudo mount /dev/mapper /mnt/vdi/
