@@ -54,7 +54,7 @@ jobs:
         
         #sudo mount /dev/nbd0p1 /mnt/vdi/
         #sudo mount /dev/mapper/nbd0 /mnt/vdi
-        sudo mount /dev/mapper/ndb0p1 /mnt/vdi 
+        sudo mount /dev/mapper/nbd0p1 /mnt/vdi 
         #sudo mount /dev/mapper /mnt/vdi/
 
         sudo ls -alR /mnt/vdi/
