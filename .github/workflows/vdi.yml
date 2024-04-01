@@ -27,7 +27,7 @@ jobs:
         
         sudo apt -y -qq -o=Dpkg::Use-Pty=0 update
         
-        sudo apt -y -qq -o=Dpkg::Use-Pty=0 install -y git live-build simple-cdd cdebootstrap curl debootstrap axel p7zip-full qemu-kvm
+        sudo apt -y -qq -o=Dpkg::Use-Pty=0 install -y git live-build simple-cdd cdebootstrap curl debootstrap axel p7zip-full qemu-kvm kpartx
 
         time axel -q "https://cdimage.kali.org/kali-2024.1/kali-linux-2024.1-virtualbox-amd64.7z" -o "kali_vbox.7z"
 
@@ -41,4 +41,6 @@ jobs:
         sudo modprobe nbd max_part=16
         sudo qemu-nbd -c /dev/nbd0 ./kali-linux-2024.1-virtualbox-amd64/kali-linux-2024.1-virtualbox-amd64.vdi
         sudo ls -alh /dev/
-        sudo mount /dev/nbd0 /mnt
+
+        sudo kpartx -a /dev/nbd0
+        sudo mount /dev/nbd0p1 /mnt
