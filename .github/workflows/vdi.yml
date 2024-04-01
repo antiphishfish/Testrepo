@@ -40,4 +40,5 @@ jobs:
         #sudo rmmod nbd
         sudo modprobe nbd max_part=16
         sudo qemu-nbd -c /dev/nbd0 ./kali-linux-2024.1-virtualbox-amd64/kali-linux-2024.1-virtualbox-amd64.vdi
-        sudo mount /dev/nbd0p1 /mnt
+        sudo ls -alh /dev/
+        sudo mount /dev/nbd0 /mnt
