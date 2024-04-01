@@ -59,7 +59,7 @@ jobs:
         sudo mount /dev/mapper/nbd0p1 /mnt/vdi 
         #sudo mount /dev/mapper /mnt/vdi/
 
-        DEBIAN_FRONTEND=noninteractive sudo --preserve-env chroot /mnt/vdi/ apt-get update
+        DEBIAN_FRONTEND=noninteractive sudo --preserve-env chroot /mnt/vdi/ apt update
 
         
         
