@@ -53,17 +53,18 @@ jobs:
         sudo ls -alh /dev/
 
         sudo kpartx -a /dev/nbd0
-        sudo ls -alh /dev/
+        #sudo ls -alh /dev/
         sudo mkdir -p /mnt/vdi
-        sudo mount
-        sudo cat /proc/partitions
-        sudo blkid
+        #sudo mount
+        #sudo cat /proc/partitions
+        #sudo blkid
         
         #sudo mount /dev/nbd0p1 /mnt/vdi/
         #sudo mount /dev/mapper/nbd0 /mnt/vdi
         sudo mount /dev/mapper/nbd0p1 /mnt/vdi 
         #sudo mount /dev/mapper /mnt/vdi/
 
+        echo nameserver 8.8.8.8| sudo tee /mnt/vdi/etc/resolv.conf
         DEBIAN_FRONTEND=noninteractive sudo --preserve-env chroot /mnt/vdi/ apt update
 
         
