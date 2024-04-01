@@ -19,7 +19,7 @@ jobs:
     
     - name: Install prerequisites
       run: |
-        set -xe
+        set -x
         
         cd /tmp/
         
@@ -51,4 +51,9 @@ jobs:
         sudo mount
         sudo cat /proc/partitions
         sudo blkid
+        sudo mount /dev/nbd0p1 /mnt/vdi/
+        sudo mount /dev/mapper/nbd0 /mnt/vdi
+        sudo mount /dev/mapper/ndb0p1 /mnt/vdi 
         sudo mount /dev/mapper /mnt/vdi/
+
+        sudo ls -alR /mnt/vdi/
