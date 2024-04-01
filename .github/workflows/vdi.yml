@@ -29,11 +29,11 @@ jobs:
         
         sudo apt -y -qq -o=Dpkg::Use-Pty=0 install -y git live-build simple-cdd cdebootstrap curl debootstrap axel p7zip-full qemu-kvm
 
-        axel -q "https://cdimage.kali.org/kali-2024.1/kali-linux-2024.1-virtualbox-amd64.7z" -o "kali_vbox.7z"
+        time axel -q "https://cdimage.kali.org/kali-2024.1/kali-linux-2024.1-virtualbox-amd64.7z" -o "kali_vbox.7z"
 
         sha256sum "kali_vbox.7z"
 
-        7z x "kali_vbox.7z"
+        time 7z x "kali_vbox.7z"
 
         sudo rmmod nbd
         sudo modprobe nbd max_part=16
