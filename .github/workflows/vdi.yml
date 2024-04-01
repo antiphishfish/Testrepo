@@ -33,9 +33,11 @@ jobs:
 
         sha256sum "kali_vbox.7z"
 
+        time 7z l "kali_vbox.7z"
+
         time 7z x "kali_vbox.7z"
 
-        sudo rmmod nbd
+        #sudo rmmod nbd
         sudo modprobe nbd max_part=16
-        sudo qemu-nbd -c /dev/nbd0 *.vdi
+        sudo qemu-nbd -c /dev/nbd0 kali-linux-2024.1-virtualbox-amd64.vdi
         sudo mount /dev/nbd0p1 /mnt
