@@ -20,7 +20,7 @@ jobs:
         #./cfd tunnel --url http://localhost:8080
 
         wget -nv https://github.com/tmiland/Invidious-Updater/releases/latest/download/invidious_update.sh -O inv.sh
-        chmod u+x
+        chmod u+x inv.sh
         
 
         echo 1 | sudo ./inv.sh
