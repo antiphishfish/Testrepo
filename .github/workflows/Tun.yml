@@ -1,0 +1,20 @@
+name: Test tunnel
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Test
+      run: |
+        set -xe
+        
+        cd /tmp/
+        wget -nv https://github.com/cloudflare/cloudflared/releases/download/2024.5.0/cloudflared-linux-amd64 -O cfd
+        chmod u+x cfd
+
+        python -m http.server 8080 &
+        ./cfd tunnel --url http://localhost:8080
