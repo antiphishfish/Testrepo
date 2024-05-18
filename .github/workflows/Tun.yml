@@ -16,5 +16,9 @@ jobs:
         wget -nv https://github.com/cloudflare/cloudflared/releases/download/2024.5.0/cloudflared-linux-amd64 -O cfd
         chmod u+x cfd
 
-        python -m http.server 8080 &
-        ./cfd tunnel --url http://localhost:8080
+        #python -m http.server 8080 &
+        #./cfd tunnel --url http://localhost:8080
+
+        wget -nv https://github.com/tmiland/Invidious-Updater/releases/latest/download/invidious_update.sh -O inv.sh
+
+        echo 1 | ./inv.sh
