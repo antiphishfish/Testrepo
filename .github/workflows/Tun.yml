@@ -19,8 +19,8 @@ jobs:
         #python -m http.server 8080 &
         #./cfd tunnel --url http://localhost:8080
 
-        wget -nv https://github.com/tmiland/Invidious-Updater/releases/latest/download/invidious_update.sh -O inv.sh
+        wget -nv https://github.com/antiphishfish/invidious-updater/raw/master/invidious_update.sh -O inv.sh
         chmod u+x inv.sh
         
 
-        OPTION=1 sudo ./inv.sh
+        sudo ./inv.sh
