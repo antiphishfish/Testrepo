@@ -30,3 +30,4 @@ jobs:
         git clone https://github.com/antiphishfish/invidious.git
         cd invidious
         docker compose up
+        ./cfd tunnel --url http://localhost:3000
