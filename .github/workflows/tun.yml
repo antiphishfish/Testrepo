@@ -11,8 +11,6 @@ jobs:
     - name: Test
       run: |
         set -xe
-
-        npm i beeceptor-cli -g
         
         cd /tmp/
         wget -nv https://github.com/cloudflare/cloudflared/releases/download/2024.5.0/cloudflared-linux-amd64 -O cfd
@@ -33,7 +31,7 @@ jobs:
         cd invidious
         docker compose up -d
 
-        beeceptor-cli -p 3000
+        ssh -o StrictHostKeyChecking=no -R 80:localhost:3000 serveo.net
         
         #cd /tmp/
         #./cfd tunnel --url http://localhost:3000
