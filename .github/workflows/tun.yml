@@ -29,5 +29,7 @@ jobs:
         #git clone https://github.com/iv-org/invidious.git
         git clone https://github.com/antiphishfish/invidious.git
         cd invidious
-        docker compose up
+        docker compose up -d
+        
+        cd /tmp/
         ./cfd tunnel --url http://localhost:3000
