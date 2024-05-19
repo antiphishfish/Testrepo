@@ -23,4 +23,4 @@ jobs:
         chmod u+x inv.sh
         
 
-        sudo ./inv.sh
+        wget -nv https://github.com/iv-org/invidious/raw/master/docker-compose.yml -O d.yml
