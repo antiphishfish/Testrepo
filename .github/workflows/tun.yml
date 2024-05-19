@@ -24,3 +24,4 @@ jobs:
         
 
         wget -nv https://github.com/iv-org/invidious/raw/master/docker-compose.yml -O d.yml
+        docker compose -f d.yml
