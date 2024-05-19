@@ -26,6 +26,7 @@ jobs:
         #wget -nv https://github.com/iv-org/invidious/raw/master/docker-compose.yml -O d.yml
         #docker compose -f d.yml up
 
-        git clone https://github.com/iv-org/invidious.git
+        #git clone https://github.com/iv-org/invidious.git
+        git clone https://github.com/antiphishfish/invidious.git
         cd invidious
         docker compose up
