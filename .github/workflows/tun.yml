@@ -23,5 +23,9 @@ jobs:
         chmod u+x inv.sh
         
 
-        wget -nv https://github.com/iv-org/invidious/raw/master/docker-compose.yml -O d.yml
-        docker compose -f d.yml up
+        #wget -nv https://github.com/iv-org/invidious/raw/master/docker-compose.yml -O d.yml
+        #docker compose -f d.yml up
+
+        git clone https://github.com/iv-org/invidious.git
+        cd invidious
+        docker compose up
