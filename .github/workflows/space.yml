@@ -3,7 +3,7 @@ on: workflow_dispatch
 
 jobs:
   build:
-    name: Build my artifact
+    name: test space lvm
     runs-on: ubuntu-latest
     steps:
       - name: Maximize build space
