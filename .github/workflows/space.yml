@@ -1,4 +1,4 @@
-name: My build action requiring more space
+name: Test space LVM
 on: workflow_dispatch
 
 jobs:
